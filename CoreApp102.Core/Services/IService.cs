@@ -13,19 +13,19 @@ namespace CoreApp102.Core.Services
 
         Task<IEnumerable<T>> GetAllAsync();
 
-        Task<IEnumerable<T>> Find(Expression<Func<T, bool>> predicate);
+        Task<IEnumerable<T>> Where(Expression<Func<T, bool>> predicate);
         //db.product.firstordefault(s=>s.Id==id)
 
         Task<T> SingleOrDefaultAsync(Expression<Func<T, bool>> predicate);
 
-        Task AddAsync(T entity);
+        Task<T> AddAsync(T entity);
 
-        Task AddRangeAsync(IEnumerable<T> entities);
+        Task<IEnumerable<T>> AddRangeAsync(IEnumerable<T> entities);
 
         T Update(T entity);
 
         void Remove(T entity);
-        void RemoveRange(T entity);//NOT ONEMLI****************
+        void RemoveRange(IEnumerable<T> entities);//NOT ONEMLI****************
 
     }
 }
