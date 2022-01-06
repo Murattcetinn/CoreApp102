@@ -22,7 +22,7 @@ namespace CoreApp102.Api.Mapping
             CreateMap<ProductDto, Product>();            
             
             CreateMap<Product, ProductWithCategoryDto>();
-            CreateMap<ProductWithCategoryDto, Product>();
+            CreateMap<ProductWithCategoryDto, Product>(); 
 
 
         }
