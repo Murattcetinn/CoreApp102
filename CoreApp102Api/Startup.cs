@@ -34,6 +34,7 @@ namespace CoreApp102Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(CoreApp102.Service.Services.Service<>));
             services.AddScoped<ICategoryService,CategoryService>();
