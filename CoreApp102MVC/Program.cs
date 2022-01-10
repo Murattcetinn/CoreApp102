@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CoreApp102MVC
+namespace CoreApp102.Mvc
 {
     public class Program
     {

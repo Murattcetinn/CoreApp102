@@ -1,4 +1,5 @@
 using CoreApp102.Api.DTOs;
+using CoreApp102.Api.Extensions;
 using CoreApp102.Api.Filters;
 using CoreApp102.Core.Repository;
 using CoreApp102.Core.Services;
@@ -80,26 +81,7 @@ namespace CoreApp102Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "CoreApp102Api v1"));
             }
-            app.UseExceptionHandler(config=>
-            {
-                config.Run(async context=>
-                {
-                    context.Response.StatusCode = 500;
-                    context.Response.ContentType = "application/json";
-                    var error = context.Features.Get<IExceptionHandlerFeature>();
-                    if (error!=null)
-                    {
-                        var ex = error.Error;
-                        if (ex!=null)
-                        {
-                            ErrorDto errorDto = new ErrorDto();
-                            errorDto.Status = 500;
-                            errorDto.Errors.Add(ex.Message);
-                            await context.Response.WriteAsync(JsonConvert.SerializeObject(errorDto));
-                        }
-                    }
-                });
-            });
+            app.UseCustomException();    
 
             app.UseHttpsRedirection();
 

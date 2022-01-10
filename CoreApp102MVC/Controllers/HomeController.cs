@@ -1,4 +1,4 @@
-﻿using CoreApp102MVC.Models;
+﻿using CoreApp102.Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
